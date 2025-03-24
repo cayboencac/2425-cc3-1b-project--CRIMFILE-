@@ -1,0 +1,5 @@
+class Sign in{
+  String username;
+  String password;
+  
+}
