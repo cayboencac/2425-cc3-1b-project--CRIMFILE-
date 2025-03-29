@@ -1,0 +1,60 @@
+public class Payment {
+
+    // Fields declared outside main
+    private int paymentId;
+    private int rentalId;
+    private int amount;
+    private String paymentMethod;
+
+    // Constructor
+    public Payment(int paymentId, int rentalId, int amount, String paymentMethod) {
+        this.paymentId = paymentId;
+        this.rentalId = rentalId;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+    }
+
+    // Getters and Setters
+    public int getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(int paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public int getRentalId() {
+        return rentalId;
+    }
+
+    public void setRentalId(int rentalId) {
+        this.rentalId = rentalId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    // Process Payment Method
+    public boolean processPayment() {
+        if (amount <= 0) {
+            System.out.println("Payment Failed, Invalid Amount");
+            return false;
+        }
+        
+        System.out.println("Payment of $" + amount + " using " + paymentMethod + " processed successfully.");
+        return true;
+    }
+}
