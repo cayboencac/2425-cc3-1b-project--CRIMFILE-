@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+
+public class RentalSystem {
+
+    private ArrayList<String> availableCars;
+    private ArrayList<String> rentedCars;
+
+    // Constructor
+    public RentalSystem() {
+        availableCars = new ArrayList<>();
+        rentedCars = new ArrayList<>();
+        // Adding some initial cars
+        availableCars.add("Toyota Corolla");
+        availableCars.add("Honda Civic");
+        availableCars.add("Ford Mustang");
+    }
+
+    // Method to add a rental
+    public boolean addRental(String car) {
+        if (availableCars.contains(car)) {
+            availableCars.remove(car);
+            rentedCars.add(car);
+            System.out.println(car + " has been rented.");
+            return true;
+        } else {
+            System.out.println(car + " is not available.");
+            return false;
+        }
+    }
+
+    // Method to return a car
+    public boolean returnCar(String car) {
+        if (rentedCars.contains(car)) {
+            rentedCars.remove(car);
+            availableCars.add(car);
+            System.out.println(car + " has been returned.");
+            return true;
+        } else {
+            System.out.println(car + " was not rented.");
+            return false;
+        }
+    }
+
+    // Method to view available cars
+    public void viewAvailableCars() {
+        System.out.println("Available Cars:");
+        if (availableCars.isEmpty()) {
+            System.out.println("No cars available.");
+        } else {
+            for (String car : availableCars) {
+                System.out.println("- " + car);
+            }
+        }
+    }
+}
