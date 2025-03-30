@@ -2,41 +2,45 @@ import java.util.ArrayList;
 
 public class RentalSystem {
 
-    private ArrayList<String> availableCars;
-    private ArrayList<String> rentedCars;
+    private ArrayList<Car> availableCars;
+    private ArrayList<Car> rentedCars;
 
     // Constructor
     public RentalSystem() {
         availableCars = new ArrayList<>();
         rentedCars = new ArrayList<>();
         // Adding some initial cars
-        availableCars.add("Toyota Corolla");
-        availableCars.add("Honda Civic");
-        availableCars.add("Ford Mustang");
+        availableCars.add(new Car(1, "Toyota", 2022, 12345, "Available"));
+        availableCars.add(new Car(2, "Honda", 2021, 67890, "Available"));
+        availableCars.add(new Car(3, "Ford", 2023, 54321, "Available"));
     }
 
     // Method to add a rental
-    public boolean addRental(String car) {
-        if (availableCars.contains(car)) {
+    public boolean addRental(int carId) {
+        Car car = findCarById(carId, availableCars);
+        if (car != null) {
             availableCars.remove(car);
+            car.setStatus("Rented");
             rentedCars.add(car);
-            System.out.println(car + " has been rented.");
+            System.out.println(car.getMake() + " (ID: " + car.getId() + ") has been rented.");
             return true;
         } else {
-            System.out.println(car + " is not available.");
+            System.out.println("Car ID " + carId + " is not available.");
             return false;
         }
     }
 
     // Method to return a car
-    public boolean returnCar(String car) {
-        if (rentedCars.contains(car)) {
+    public boolean returnCar(int carId) {
+        Car car = findCarById(carId, rentedCars);
+        if (car != null) {
             rentedCars.remove(car);
+            car.setStatus("Available");
             availableCars.add(car);
-            System.out.println(car + " has been returned.");
+            System.out.println(car.getMake() + " (ID: " + car.getId() + ") has been returned.");
             return true;
         } else {
-            System.out.println(car + " was not rented.");
+            System.out.println("Car ID " + carId + " was not rented.");
             return false;
         }
     }
@@ -47,9 +51,57 @@ public class RentalSystem {
         if (availableCars.isEmpty()) {
             System.out.println("No cars available.");
         } else {
-            for (String car : availableCars) {
-                System.out.println("- " + car);
+            for (Car car : availableCars) {
+                System.out.println("- ID: " + car.getId() + " | Make: " + car.getMake() + " | Year: " + car.getYear());
             }
         }
+    }
+
+    // Method to view rented cars
+    public void getRentedCars() {
+        System.out.println("Rented Cars:");
+        if (rentedCars.isEmpty()) {
+            System.out.println("No cars are currently rented.");
+        } else {
+            for (Car car : rentedCars) {
+                System.out.println("- ID: " + car.getId() + " | Make: " + car.getMake());
+            }
+        }
+    }
+
+    // Method to add a car to the system inventory
+    public void addCarToInventory(Car car) {
+        availableCars.add(car);
+        System.out.println(car.getMake() + " (ID: " + car.getId() + ") added to inventory.");
+    }
+
+    // Method to remove a car from the inventory
+    public boolean removeCarFromInventory(int carId) {
+        Car car = findCarById(carId, availableCars);
+        if (car != null) {
+            availableCars.remove(car);
+            System.out.println(car.getMake() + " (ID: " + car.getId() + ") removed from inventory.");
+            return true;
+        } else {
+            System.out.println("Car ID " + carId + " not found in inventory.");
+            return false;
+        }
+    }
+
+    // Method to find a car by ID in a given list
+    private Car findCarById(int carId, ArrayList<Car> carList) {
+        for (Car car : carList) {
+            if (car.getId() == carId) {
+                return car;
+            }
+        }
+        return null;
+    }
+
+    // Display all cars (both available and rented)
+    public void displayAllCars() {
+        System.out.println("\n*** All Cars in System ***");
+        viewAvailableCars();
+        getRentedCars();
     }
 }
