@@ -36,7 +36,11 @@ public class Payment {
     }
 
     public void setAmount(int amount) {
-        this.amount = amount;
+        if (validateAmount(amount)) {
+            this.amount = amount;
+        } else {
+            System.out.println("Invalid amount. Amount must be greater than zero.");
+        }
     }
 
     public String getPaymentMethod() {
@@ -44,17 +48,62 @@ public class Payment {
     }
 
     public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
+        if (validatePaymentMethod(paymentMethod)) {
+            this.paymentMethod = paymentMethod;
+        } else {
+            System.out.println("Invalid payment method. Choose Credit Card, Debit Card, or Cash.");
+        }
     }
 
     // Process Payment Method
     public boolean processPayment() {
-        if (amount <= 0) {
-            System.out.println("Payment Failed, Invalid Amount");
+        if (!validateAmount(amount)) {
+            System.out.println("Payment Failed: Invalid Amount.");
             return false;
         }
-        
+        if (!validatePaymentMethod(paymentMethod)) {
+            System.out.println("Payment Failed: Invalid Payment Method.");
+            return false;
+        }
+
         System.out.println("Payment of $" + amount + " using " + paymentMethod + " processed successfully.");
         return true;
+    }
+
+    // Apply Discount
+    public void applyDiscount(int discountPercentage) {
+        if (discountPercentage < 0 || discountPercentage > 100) {
+            System.out.println("Invalid discount percentage.");
+            return;
+        }
+        int discountAmount = (amount * discountPercentage) / 100;
+        amount -= discountAmount;
+        System.out.println("Discount of " + discountPercentage + "% applied. New amount: $" + amount);
+    }
+
+    // Refund Payment
+    public void refundPayment() {
+        System.out.println("Refund of $" + amount + " has been processed.");
+        amount = 0; // Reset amount after refund
+    }
+
+    // Validate Amount
+    private boolean validateAmount(int amount) {
+        return amount > 0;
+    }
+
+    // Validate Payment Method
+    private boolean validatePaymentMethod(String method) {
+        return method.equalsIgnoreCase("Credit Card") || 
+               method.equalsIgnoreCase("Debit Card") || 
+               method.equalsIgnoreCase("Cash");
+    }
+
+    // Display Payment Details
+    public void displayPaymentDetails() {
+        System.out.println("Payment ID: " + paymentId);
+        System.out.println("Rental ID: " + rentalId);
+        System.out.println("Amount: $" + amount);
+        System.out.println("Payment Method: " + paymentMethod);
     }
 }
