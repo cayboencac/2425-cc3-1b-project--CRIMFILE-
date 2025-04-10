@@ -4,14 +4,26 @@ public class Car {
     private int year;
     private int licensePlate;
     private String status;
+    private int pricePerDay;
 
-    // Correct Constructor
+    // Constructor with pricePerDay
+    public Car(int id, String make, int year, int licensePlate, String status, int pricePerDay) {
+        this.id = id;
+        this.make = make;
+        this.year = year;
+        this.licensePlate = licensePlate;
+        this.status = status;
+        this.pricePerDay = pricePerDay;
+    }
+
+    // Overloaded constructor without pricePerDay
     public Car(int id, String make, int year, int licensePlate, String status) {
         this.id = id;
         this.make = make;
         this.year = year;
         this.licensePlate = licensePlate;
         this.status = status;
+        this.pricePerDay = 0;  // Default value for pricePerDay
     }
 
     // Getters and Setters
@@ -55,6 +67,14 @@ public class Car {
         this.status = status;
     }
 
+    public int getPricePerDay() {
+        return pricePerDay;
+    }
+
+    public void setPricePerDay(int pricePerDay) {
+        this.pricePerDay = pricePerDay;
+    }
+
     // Additional Methods
     public void markAsRented() {
         this.status = "Rented";
@@ -79,5 +99,6 @@ public class Car {
         System.out.println("Year: " + year);
         System.out.println("License Plate: " + licensePlate);
         System.out.println("Status: " + status);
+        System.out.println("Price per day: $" + pricePerDay);
     }
 }
