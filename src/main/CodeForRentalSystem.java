@@ -11,26 +11,28 @@ public class RentalSystem {
         availableCars = new ArrayList<>();
         rentedCars = new ArrayList<>();
         // Adding some initial cars
-        availableCars.add(new Car(123, "Toyota", 2022, 300, "Available", 100));
-        availableCars.add(new Car(234, "Toyota", 2024, 12745, "Available", 150));
-        availableCars.add(new Car(345, "Toyota", 2025, 12385, "Available", 170));
-        availableCars.add(new Car(456, "Toyota", 2021, 12445, "Available", 100));
-        availableCars.add(new Car(567, "Toyota", 2015, 12645, "Available", 100));
-        availableCars.add(new Car(678, "Toyota", 2016, 12865, "Available", 80));
-        availableCars.add(new Car(789, "Honda", 2021, 67890, "Available", 90));
-        availableCars.add(new Car(890, "Honda", 2022, 67390, "Available", 120));
-        availableCars.add(new Car(912, "Honda", 2023, 67290, "Available", 150));
-        availableCars.add(new Car(101, "Honda", 2023, 67840, "Available", 150));
-        availableCars.add(new Car(111, "Honda", 2025, 67860, "Available", 180));
-        availableCars.add(new Car(121, "Ford", 2022, 54321, "Available", 150));
-        availableCars.add(new Car(131, "Ford", 2021, 54671, "Available", 100));
-        availableCars.add(new Car(141, "Ford", 2019, 54891, "Available", 90));
-        availableCars.add(new Car(151, "Ford", 2018, 54121, "Available", 80));
-        availableCars.add(new Car(162, "Ford", 2020, 54551, "Available", 100));
-        availableCars.add(new Car(172, "Ferrari", 2022, 45291, "Available", 300));
-        availableCars.add(new Car(182, "Ferrari", 2023, 45991, "Available", 400));
-        availableCars.add(new Car(192, "Ferrari", 2024, 45781, "Available", 600));
-        availableCars.add(new Car(202, "Ferrari", 2025, 45201, "Available", 1000));
+        availableCars.add(new Car(123, "Toyota, HILUX 2.8 GR-S 4x4 A/T", 2022, 300, "Available", 100));
+        availableCars.add(new Car(234, "Toyota, WIGO G CVT", 2024, 12745, "Available", 150));
+        availableCars.add(new Car(345, "Toyota, VIOS 1.3 XLE CVT", 2025, 12385, "Available", 170));
+        availableCars.add(new Car(456, "Toyota, COROLLA ALTIS 1.8 GR-S HEV CVT", 2021, 12445, "Available", 100));
+        availableCars.add(new Car(567, "Toyota, CAMRY 2.5 V HEV CVT", 2015, 12645, "Available", 100));
+        availableCars.add(new Car(678, "Toyota, ATIV 1.5 HEV CVT", 2016, 12865, "Available", 80));
+        availableCars.add(new Car(789, "Honda, 1.5 VX CVT Honda SENSING", 2021, 67890, "Available", 90));
+        availableCars.add(new Car(890, "Honda, HR-V", 2022, 67390, "Available", 120));
+        availableCars.add(new Car(912, "Honda, CR-V", 2023, 67290, "Available", 150));
+        availableCars.add(new Car(101, "Honda, BRIO", 2023, 67840, "Available", 150));
+        availableCars.add(new Car(111, "Honda, CITY", 2025, 67860, "Available", 180));
+        availableCars.add(new Car(121, "Ford, Moshtang", 2022, 54321, "Available", 150));
+        availableCars.add(new Car(131, "Ford, Raptor", 2021, 54671, "Available", 100));
+        availableCars.add(new Car(141, "Ford, Everest", 2019, 54891, "Available", 90));
+        availableCars.add(new Car(151, "Ford, Ranger", 2018, 54121, "Available", 80));
+        availableCars.add(new Car(162, "Ford, Territory", 2020, 54551, "Available", 100));
+        availableCars.add(new Car(172, "Ferrari, Roma", 2022, 45291, "Available", 300));
+        availableCars.add(new Car(182, "Ferrari, 296 GTB", 2023, 45991, "Available", 400));
+        availableCars.add(new Car(192, "Ferrari, SF90 Stardale", 2024, 45781, "Available", 600));
+        availableCars.add(new Car(202, "Ferrari, F50", 2025, 45201, "Available", 1000));
+        availableCars.add(new Car(202, "BMW, X1 SUV, F50", 2025, 45201, "Available", 1000));
+        availableCars.add(new Car(202, "BMW, Coupe SUV, F50", 2025, 45201, "Available", 1000));
     }
 
     // Method to add a rental
