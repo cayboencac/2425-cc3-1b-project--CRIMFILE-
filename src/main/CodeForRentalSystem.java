@@ -32,7 +32,7 @@ public class RentalSystem {
         availableCars.add(new Car(192, "Ferrari, SF90 Stardale", 2024, 45781, "Available", 600));
         availableCars.add(new Car(211, "Ferrari, F50", 2025, 45201, "Available", 850));
         availableCars.add(new Car(232, "BMW, X1 SUV, F50", 2025, 34565, "Available", 350));
-        availableCars.add(new Car(567, "BMW, Coupe SUV, F50", 2025, 15785, "Available", 400));
+        availableCars.add(new Car(195, "BMW, Coupe SUV, F50", 2025, 15785, "Available", 400));
     }
 
     // Method to add a rental
