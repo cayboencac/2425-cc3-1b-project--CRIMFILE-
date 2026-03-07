@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">CarRent</div>
+            <nav>
+                <ul>
+                    <li class="active">Home</li>
+                    <li>Available Cars</li>
+                    <li>My Bookings</li>
+                    <li>Profile</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for cars, brands, or models..." id="searchInput">
+                <button class="filter-btn">&#128269;</button>
+            </div>
+
+            <!-- Car Grid -->
+            <div class="car-grid" id="carGrid">
+                <!-- JavaScript will insert car cards here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
